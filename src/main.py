@@ -5,7 +5,6 @@ from player import *
 from ennemy import *
 from menu import MenuDebut, MenuFin, Transition, MenuTouches
 from pnj import *
-from menu_marchand import *
 from PHPMYADMIN import LoginPage
 from terminal import CMD
 from dialog import Aide
