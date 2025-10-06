@@ -1,0 +1,260 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "C:/Users/samue/Downloads/Water_Fall.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "C:/Users/samue/Downloads/Overworld.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/samue/Downloads/Water +.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/samue/Downloads/Water_Fall.tmx": {
+            "expandedObjectLayers": [
+                21
+            ],
+            "scale": 2,
+            "selectedLayer": 15,
+            "viewCenter": {
+                "x": 191.75,
+                "y": 217.5
+            }
+        },
+        "C:/Users/samue/Downloads/Watertemple.tmx": {
+            "expandedObjectLayers": [
+                14
+            ],
+            "scale": 1.5,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 288,
+                "y": 240.33333333333337
+            }
+        },
+        "C:/Users/samue/Downloads/dungeon_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "data/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx/Overworld_tiled.tsx": {
+            "scaleInDock": 1
+        },
+        "data/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx/Water.tsx": {
+            "scaleInDock": 1
+        },
+        "data/Desktop/Overworld.tsx": {
+            "scaleInDock": 1
+        },
+        "data/Desktop/Water +.tsx": {
+            "scaleInDock": 1
+        },
+        "data/tmx/Catacombs.tmx": {
+            "scale": 1.6241536458333334,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 383.5843989257225,
+                "y": 256.4412554615785
+            }
+        },
+        "data/tmx/Dungeon.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 3,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 262.8333333333333,
+                "y": 152.66666666666666
+            }
+        },
+        "data/tmx/Overworld.tmx": {
+            "expandedGroupLayers": [
+                25,
+                17
+            ],
+            "expandedObjectLayers": [
+                25,
+                10
+            ],
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 202.83333333333331,
+                "y": 186
+            }
+        },
+        "data/tmx/Overworld.tsx": {
+            "scaleInDock": 1
+        },
+        "data/tmx/Swamp.tmx": {
+            "expandedObjectLayers": [
+                8
+            ],
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 279.66666666666663,
+                "y": 396.66666666666663
+            }
+        },
+        "data/tmx/Test.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 960,
+                "y": 536.6666666666667
+            }
+        },
+        "data/tmx/Waterfall.tmx": {
+            "expandedObjectLayers": [
+                21
+            ],
+            "scale": 2,
+            "selectedLayer": 14,
+            "viewCenter": {
+                "x": 251.25,
+                "y": 167
+            }
+        },
+        "data/tmx/map_Overworld.tmx": {
+            "expandedGroupLayers": [
+                14,
+                25,
+                17
+            ],
+            "expandedObjectLayers": [
+                25,
+                27,
+                10
+            ],
+            "scale": 5.5,
+            "selectedLayer": 16,
+            "viewCenter": {
+                "x": 271.72727272727275,
+                "y": 368
+            }
+        },
+        "data/tmx/objects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 4,
+            "scaleInEditor": 3
+        },
+        "data/tmx/test1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        },
+        "data/tsx/Candles.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "data/tsx/Overworld.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 5.5
+        },
+        "data/tsx/Overworld_tiled.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 4
+        },
+        "data/tsx/Tiled_Overworld.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "data/tsx/Water.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "data/tsx/decorative.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 4
+        },
+        "data/tsx/dungeon_tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 4
+        },
+        "data/tsx/dungeon_tiles2.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 5.5
+        },
+        "data/tsx/items_tiled.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 3,
+            "scaleInEditor": 3
+        },
+        "data/tsx/mainlevbuild.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "data/tsx/objects.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "data/tsx/test.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        },
+        "data/tsx/test1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/samue/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx",
+    "last.imagePath": "C:/Users/samue/Desktop/GitHub/PT_Python/graphics/Tiled",
+    "map.height": 32,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 48,
+    "openFiles": [
+        "data/tmx/Overworld.tmx",
+        "C:/Users/samue/Downloads/Water_Fall.tmx",
+        "data/tmx/Swamp.tmx",
+        "data/tmx/Dungeon.tmx",
+        "data/tmx/Waterfall.tmx",
+        "data/tsx/Overworld_tiled.tsx",
+        "data/tsx/objects.tsx",
+        "data/tmx/Test.tmx",
+        "data/tsx/dungeon_tiles.tsx",
+        "data/tsx/decorative.tsx",
+        "data/tmx/Catacombs.tmx",
+        "data/tsx/mainlevbuild.tsx",
+        "data/tsx/Candles.tsx",
+        "C:/Users/samue/Downloads/Watertemple.tmx"
+    ],
+    "project": "Tiled_maps.tiled-project",
+    "recentFiles": [
+        "data/tmx/Waterfall.tmx",
+        "data/tmx/Overworld.tmx",
+        "C:/Users/samue/Downloads/Watertemple.tmx",
+        "data/tsx/Candles.tsx",
+        "data/tsx/mainlevbuild.tsx",
+        "data/tmx/Catacombs.tmx",
+        "data/tsx/decorative.tsx",
+        "data/tsx/dungeon_tiles.tsx",
+        "data/tmx/Test.tmx",
+        "data/tsx/objects.tsx",
+        "data/tsx/Overworld_tiled.tsx",
+        "data/tmx/Dungeon.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 1
+}
