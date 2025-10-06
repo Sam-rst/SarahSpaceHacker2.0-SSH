@@ -17,7 +17,7 @@ class Projectile(pygame.sprite.Sprite):
         self.caracter = caracter_sprite
         
         # Surface and rectangle
-        self.image = pygame.image.load('graphics/weapons/orbs/orb_red.png').convert_alpha()
+        self.image = pygame.image.load('assets/weapons/orbs/orb_red.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = self.caracter.get_pos())
         self.old_rect = self.rect.copy()
         
@@ -88,7 +88,7 @@ class EnnemiProjectile(Projectile):
     type = 'EnnemiProjectile'
     def __init__(self, caracter_sprite, groups):
         super().__init__(caracter_sprite, groups)
-        self.image = pygame.image.load('graphics/weapons/orbs/orb_yellow.png').convert_alpha()
+        self.image = pygame.image.load('assets/weapons/orbs/orb_yellow.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = self.caracter.get_pos())
         self.player = sprites.player
 

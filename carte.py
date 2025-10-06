@@ -1,3 +1,4 @@
+import asyncio
 import pygame, pytmx, sprites, sys, os
 from pytmx.util_pygame import load_pygame
 from collisions import CollisionTile
@@ -11,7 +12,7 @@ class Carte:
         self.screen = pygame.display.get_surface()
         # tmxdata
         self.map_name = map_name
-        self.tmxdata = load_pygame(f'graphics/Tiled/data/tmx/{self.map_name}.tmx')
+        self.tmxdata = load_pygame(f'assets/Tiled/data/tmx/{self.map_name}.tmx')
         self.width = self.tmxdata.width
         self.height = self.tmxdata.height
         self.size_map = (self.width, self.height)
@@ -109,7 +110,7 @@ class Carte:
 
         return obj_pos, pickup_distance
     
-    def game_over(self):
+    async def game_over(self):
         # Afficher un message de fin de partie et quitter la boucle principale
         font = pygame.font.SysFont(None, 64)
         text_surf = font.render("Game Over appuyez sur SPACE pour respawn", True, (255, 0, 0))
@@ -137,6 +138,8 @@ class Carte:
                         # pygame.quit()
                         is_respawn = True
                         # sys.exit()
+
+            await asyncio.sleep(0)
             
         # # Supprimer le fichier save.json
         # if os.path.exists(self.save_file):

@@ -1,3 +1,4 @@
+import asyncio
 import pygame
 import sys
 import time
@@ -66,7 +67,7 @@ class CMD:
             curseur_x = 130 + self.police.size(ligne_actuelle[:len(self.texte) + 2])[0]
             pygame.draw.line(self.fenetre, self.blanc, (curseur_x, self.hauteur - 50), (curseur_x, self.hauteur - 10), 2)
 
-    def run(self):
+    async def run(self):
         running = True
         self.ouvrir_menu()
         
@@ -103,6 +104,7 @@ class CMD:
                 self.texte = ""
 
             pygame.display.flip()
+            await asyncio.sleep(0)
 
 if __name__ == "__main__":
     menu = CMD()

@@ -1,3 +1,4 @@
+import asyncio
 import pygame
 import sys
 import time
@@ -35,7 +36,7 @@ class LoginPage:
         self.clic_sur_bouton = False
 
         # Charger une image (remplacez 'logo.png' par le chemin de votre propre image)
-        self.logo = pygame.image.load('graphics/logo.png')
+        self.logo = pygame.image.load('assets/logo.png')
 
         # Temps où le message "Connexion réussie!" a été affiché
         self.temps_connexion_reussie = 0
@@ -43,7 +44,7 @@ class LoginPage:
         # Durée en millisecondes pendant laquelle le message "Connexion réussie!" sera affiché (5 secondes)
         self.duree_connexion_reussie = 5000
 
-    def run(self):
+    async def run(self):
         running = True
         while running:
             for event in pygame.event.get():
@@ -145,6 +146,7 @@ class LoginPage:
                     self.afficher_texte(self.message_connexion_reussie, (self.largeur // 2, self.hauteur - 60), self.bleu)
 
             pygame.display.flip()
+            await asyncio.sleep(0)
 
     def afficher_texte(self, texte, position, couleur):
         texte_surface = self.police.render(texte, True, couleur)

@@ -1,3 +1,4 @@
+import asyncio
 import pygame, sys, random
 from dice import Dice
 from save import SaveData
@@ -31,8 +32,8 @@ class MenuDebut:
         self.drops = []
 
         # Polices de caractères
-        self.font_grand = pygame.font.Font('graphics/font/Gixel.ttf', 50)
-        self.font = pygame.font.Font('graphics/font/Gixel.ttf', 30)
+        self.font_grand = pygame.font.Font('assets/font/Gixel.ttf', 50)
+        self.font = pygame.font.Font('assets/font/Gixel.ttf', 30)
 
     def create_drops(self, num_drops):
         for _ in range(num_drops):
@@ -53,7 +54,7 @@ class MenuDebut:
             if self.y > self.HEIGHT:
                 self.y = random.randint(-100, 0)
 
-    def run(self):
+    async def run(self):
         if self.class_joueur is None:
             largeur_bouton = 200
             bouton_start = pygame.Rect((self.WIDTH - largeur_bouton) / 2, 800, largeur_bouton, 50)
@@ -90,7 +91,7 @@ class MenuDebut:
                     screen.blit(text_surface, (drop.x, drop.y))
                     drop.fall()
                     
-                image_commandes = pygame.image.load("graphics/touches/commandes.png")
+                image_commandes = pygame.image.load("assets/touches/commandes.png")
                 image_commandes = pygame.transform.scale(image_commandes, (1000, 600))
                 screen.blit(image_commandes, (250, 120))
                 
@@ -108,6 +109,7 @@ class MenuDebut:
 
                 pygame.display.flip()
                 pygame.time.delay(7)
+                await asyncio.sleep(0)
 
         else:
             if self.class_joueur['Class'] == 'Player':
@@ -126,7 +128,7 @@ class MenuDebut:
             player.set_range(attack_range)
             player_pos = self.player_data.get('player_position')
             player.set_pos((player_pos['x'], player_pos['y']))
-
+            await asyncio.sleep(0)
             return player
 
 class MenuTouches:
@@ -149,8 +151,8 @@ class MenuTouches:
         self.drops = []
 
         # Polices de caractères
-        self.font_grand = pygame.font.Font('graphics/font/Gixel.ttf', 50)
-        self.font = pygame.font.Font('graphics/font/Gixel.ttf', 30)
+        self.font_grand = pygame.font.Font('assets/font/Gixel.ttf', 50)
+        self.font = pygame.font.Font('assets/font/Gixel.ttf', 30)
 
     def create_drops(self, num_drops):
         for _ in range(num_drops):
@@ -171,7 +173,7 @@ class MenuTouches:
             if self.y > self.HEIGHT:
                 self.y = random.randint(-100, 0)
 
-    def run(self):
+    async def run(self):
         largeur_bouton = 200
         bouton_continuer = pygame.Rect((self.WIDTH - largeur_bouton) / 2, 800, largeur_bouton, 50)
 
@@ -201,7 +203,7 @@ class MenuTouches:
                 screen.blit(text_surface, (drop.x, drop.y))
                 drop.fall()
                 
-            image_commandes = pygame.image.load("graphics/touches/commandes.png")
+            image_commandes = pygame.image.load("assets/touches/commandes.png")
             image_commandes = pygame.transform.scale(image_commandes, (1000, 600))
             screen.blit(image_commandes, (250, 120))
             
@@ -219,6 +221,7 @@ class MenuTouches:
 
             pygame.display.flip()
             pygame.time.delay(7)
+            await asyncio.sleep(0)
 
 
 class MenuFin:
@@ -228,7 +231,7 @@ class MenuFin:
         self.running = True
         self.menu_open = True
 
-    def run(self):
+    async def run(self):
 
         # Configuration de la fenêtre
         WIDTH, HEIGHT = screen.get_size()
@@ -321,13 +324,14 @@ class MenuFin:
 
             pygame.time.delay(7)
             pygame.display.flip()
+            await asyncio.sleep(0)
             
 class Transition:
     
     def __init__(self):
         self.test = 'test'
         
-    def run(self):
+    async def run(self):
         # Configuration de la fenêtre
         WIDTH, HEIGHT = screen.get_size()
 
@@ -363,5 +367,6 @@ class Transition:
 
             pygame.display.flip()
             pygame.time.delay(6)
+            await asyncio.sleep(0)
         
         running = False
