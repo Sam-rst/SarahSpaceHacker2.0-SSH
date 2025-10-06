@@ -39,10 +39,10 @@
         "C:/Users/samue/Downloads/dungeon_tiles.tsx": {
             "scaleInDock": 1
         },
-        "data/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx/Overworld_tiled.tsx": {
+        "data/Desktop/GitHub/PT_Python/assets/Tiled/data/tsx/Overworld_tiled.tsx": {
             "scaleInDock": 1
         },
-        "data/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx/Water.tsx": {
+        "data/Desktop/GitHub/PT_Python/assets/Tiled/data/tsx/Water.tsx": {
             "scaleInDock": 1
         },
         "data/Desktop/Overworld.tsx": {
@@ -211,8 +211,8 @@
             "scaleInEditor": 3
         }
     },
-    "last.externalTilesetPath": "C:/Users/samue/Desktop/GitHub/PT_Python/graphics/Tiled/data/tsx",
-    "last.imagePath": "C:/Users/samue/Desktop/GitHub/PT_Python/graphics/Tiled",
+    "last.externalTilesetPath": "C:/Users/samue/Desktop/GitHub/PT_Python/assets/Tiled/data/tsx",
+    "last.imagePath": "C:/Users/samue/Desktop/GitHub/PT_Python/assets/Tiled",
     "map.height": 32,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,

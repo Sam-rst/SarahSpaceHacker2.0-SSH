@@ -11,7 +11,7 @@ class Carte:
         self.screen = pygame.display.get_surface()
         # tmxdata
         self.map_name = map_name
-        self.tmxdata = load_pygame(f'graphics/Tiled/data/tmx/{self.map_name}.tmx')
+        self.tmxdata = load_pygame(f'assets/Tiled/data/tmx/{self.map_name}.tmx')
         self.width = self.tmxdata.width
         self.height = self.tmxdata.height
         self.size_map = (self.width, self.height)

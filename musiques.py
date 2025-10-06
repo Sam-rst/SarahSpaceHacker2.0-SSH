@@ -15,8 +15,8 @@ class MusicPlayer:
 
     def shuffle_playlist(self):
         self.playlist = [
-            "graphics/songs/dbz.mp3",
-            "graphics/songs/pokemon.mp3"
+            "assets/songs/dbz.mp3",
+            "assets/songs/pokemon.mp3"
             ]
         random.shuffle(self.playlist)
 

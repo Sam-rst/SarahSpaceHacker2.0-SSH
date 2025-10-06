@@ -14,7 +14,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-parchemin_surf = pygame.image.load("graphics/touches/parchemin.png")
+parchemin_surf = pygame.image.load("assets/touches/parchemin.png")
 parchemin_surf = pygame.transform.scale(parchemin_surf, (200, 256))
 parchemin_rect = parchemin_surf.get_rect(topleft = (0, 0))
 

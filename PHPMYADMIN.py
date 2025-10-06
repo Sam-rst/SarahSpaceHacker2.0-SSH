@@ -35,7 +35,7 @@ class LoginPage:
         self.clic_sur_bouton = False
 
         # Charger une image (remplacez 'logo.png' par le chemin de votre propre image)
-        self.logo = pygame.image.load('graphics/logo.png')
+        self.logo = pygame.image.load('assets/logo.png')
 
         # Temps où le message "Connexion réussie!" a été affiché
         self.temps_connexion_reussie = 0
