@@ -23,8 +23,13 @@ def clamp(v, lo, hi):
 
 
 def send_json_line(conn: socket.socket, obj: dict):
-    data = (json.dumps(obj, separators=(",", ":")) + "\n").encode("utf-8")
-    conn.sendall(data)
+    try:
+        data = (json.dumps(obj, separators=(",", ":")) + "\n").encode("utf-8")
+        conn.sendall(data)
+    except (ConnectionResetError, BrokenPipeError, ConnectionAbortedError):
+        # Ces erreurs signifient que la connexion est morte côté client
+        raise OSError("Client déconnecté")
+
 
 
 def snapshot_state():
@@ -67,12 +72,12 @@ def remove_player(player_id: int):
         try:
             conn.close()
         except OSError:
-            pass
-    # Après suppression, envoyer un état à jour
+            pass  # Pas besoin d'afficher, socket déjà fermée
     try:
         broadcast_state()
     except Exception:
         pass
+
 
 
 def handle_client(conn: socket.socket, addr):
@@ -124,9 +129,16 @@ def handle_client(conn: socket.socket, addr):
                     p["y"] = clamp(p["y"] + dy * PLAYER_SPEED, 0, WORLD_H)
             # Vous pouvez étendre ici: tirs, collisions, scores, etc.
 
-    except (ConnectionResetError, OSError):
-        pass
+    except (ConnectionResetError, OSError) as e:
+        print(f"Erreur : {e}")
+    except Exception as e:
+        print(f"Erreur : {e}")
     finally:
+        try:
+            conn.shutdown(socket.SHUT_RDWR)
+        except OSError:
+            pass
+        conn.close()
         print(f"[-] Joueur {player_id} déconnecté")
         remove_player(player_id)
 
@@ -181,6 +193,6 @@ def get_local_ip():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Serveur coop (LAN)")
     parser.add_argument("--host", default="0.0.0.0", help="Adresse d'écoute (0.0.0.0 pour LAN)")
-    parser.add_argument("--port", type=int, default=5000, help="Port d'écoute")
+    parser.add_argument("--port", type=int, default=50006, help="Port d'écoute")
     args = parser.parse_args()
     run_server(get_local_ip(), args.port)
