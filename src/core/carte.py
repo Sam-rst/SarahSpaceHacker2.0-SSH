@@ -134,8 +134,8 @@ class Carte:
                         # sprites.player.regenerate()
                         sprites.camera_group = sprites.camera_groups['Overworld']
                         sprites.player.set_pos(sprites.camera_group.carte.get_waypoint('Spawn'))
-                        if os.path.exists('../data/save.json'):
-                            os.remove('../data/save.json')
+                        if os.path.exists('src/data/save.json'):
+                            os.remove('src/data/save.json')
                         # pygame.quit()
                         is_respawn = True
                         # sys.exit()

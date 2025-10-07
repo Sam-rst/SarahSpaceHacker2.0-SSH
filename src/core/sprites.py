@@ -69,7 +69,7 @@ camera_groups = {
 }
 # Water Fall ;)
 
-save_data = SaveData('../data/save.json')
+save_data = SaveData('src/data/save.json')
 map_name = save_data.load_player_map()
 mob_dead = save_data.load_mob_dead()
 
