@@ -1,8 +1,7 @@
 import pygame
-import sys
 import time
 
-class CMD:
+class Terminal:
     def __init__(self):
         pygame.init()
 
@@ -105,5 +104,5 @@ class CMD:
             pygame.display.flip()
 
 if __name__ == "__main__":
-    menu = CMD()
+    menu = Terminal()
     menu.run()

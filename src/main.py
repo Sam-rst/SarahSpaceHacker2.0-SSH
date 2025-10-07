@@ -3,10 +3,10 @@ from settings import *
 import sprites
 from player import *
 from ennemy import *
-from menu import MenuDebut, MenuFin, Transition, MenuTouches
+from ui.menu import MenuDebut, MenuFin, Transition, MenuTouches
 from pnj import *
-from PHPMYADMIN import LoginPage
-from terminal import CMD
+from ui.menu_mysql import LoginPage
+from ui.terminal import Terminal
 from dialog import Aide
 
 pygame.init()
@@ -19,7 +19,7 @@ parchemin_rect = parchemin_surf.get_rect(topleft = (0, 0))
 
 # Menus
 login_page = LoginPage()
-cmd = CMD()
+cmd = Terminal()
 menuDebut = MenuDebut()
 menuFin = MenuFin()
 transition = Transition()
