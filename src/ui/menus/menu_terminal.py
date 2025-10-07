@@ -97,7 +97,7 @@ class Terminal:
             if self.menu_ouvert:
                 self.afficher_console()
             else:
-                # Fermez le menu
+                # Fermez le menus
                 self.historique = []
                 self.texte = ""
 

@@ -1,5 +1,4 @@
-import pygame
-from settings import *
+from src.core.settings import *
 
 class CollisionTile(pygame.sprite.Sprite):
     type = 'CollisionTile'

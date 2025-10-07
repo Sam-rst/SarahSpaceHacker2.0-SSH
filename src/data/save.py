@@ -1,6 +1,5 @@
 import os
 import json
-from encoder import Encoder
 
 class SaveData:
     def __init__(self, filename):
@@ -194,21 +193,6 @@ class SaveData:
                     return  []
         except FileNotFoundError:
             return []
-        
-    def save_player_class(self, player_class):
-        try:
-            with open(self.filename, "r") as file:
-                data = json.load(file)
-        except FileNotFoundError:
-            data = {}
-
-        data["player_class"] = player_class
-
-        try:
-            with open(self.filename, "w") as file:
-                json.dump(data, file, cls=Encoder)
-        except IOError:
-            print("Erreur lors de l'écriture du fichier de sauvegarde.")
 
     def load_player_class(self):
         try:

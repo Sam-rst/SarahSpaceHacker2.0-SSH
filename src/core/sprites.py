@@ -1,8 +1,8 @@
 import pygame
-from camera import CameraGroup
-from save import SaveData
-from dialog import DialogBox, Aide
-from touche import Touche
+from src.core.camera import CameraGroup
+from src.data.save import SaveData
+from src.ui.dialog.dialog import DialogBox, Aide
+from src.ui.touche import Touche
 
 
 
@@ -69,7 +69,7 @@ camera_groups = {
 }
 # Water Fall ;)
 
-save_data = SaveData('save.json')
+save_data = SaveData('../data/save.json')
 map_name = save_data.load_player_map()
 mob_dead = save_data.load_mob_dead()
 

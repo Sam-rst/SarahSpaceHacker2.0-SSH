@@ -1,8 +1,7 @@
-import pygame
-from settings import *
-from images import *
-from inventaire import Inventaire
-from save import SaveData
+from src.core.settings import *
+from src.domain.images import *
+from src.domain.inventaire import Inventaire
+from src.data.save import SaveData
 
 class Item(pygame.sprite.Sprite):
     type = "Item"

@@ -1,9 +1,6 @@
-import pygame
-from settings import *
-from carte import Carte
-from collisions import CollisionTile
-from ennemy import Ennemy
-from player import Player
+from src.core.settings import *
+from src.core.carte import Carte
+from src.domain.ennemy import Ennemy
 
 class CameraGroup(pygame.sprite.Group):
     def __init__(self, name_map, list_teleporters, layers_obstacles, messages, name_interaction):

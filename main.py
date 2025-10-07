@@ -1,19 +1,16 @@
-import pygame, sys, time
-from settings import *
-import sprites
-from player import *
-from ennemy import *
-from ui.menu import MenuDebut, MenuFin, Transition, MenuTouches
-from pnj import *
-from ui.menu_mysql import LoginPage
-from ui.terminal import Terminal
-from dialog import Aide
+import sys, time
+
+from src.core import sprites
+from src.ui.menus.menu import MenuDebut, MenuFin, Transition, MenuTouches
+from src.domain.pnj import *
+from src.ui.menus.menu_mysql import LoginPage
+from src.ui.menus.menu_terminal import Terminal
 
 pygame.init()
 
 clock = pygame.time.Clock()
 
-parchemin_surf = pygame.image.load("assets/touches/parchemin.png")
+parchemin_surf = pygame.image.load("src/assets/touches/parchemin.png")
 parchemin_surf = pygame.transform.scale(parchemin_surf, (200, 256))
 parchemin_rect = parchemin_surf.get_rect(topleft = (0, 0))
 

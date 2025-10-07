@@ -1,8 +1,10 @@
-import pygame, pytmx, sprites, sys, os
+import pytmx, sys, os
 from pytmx.util_pygame import load_pygame
-from collisions import CollisionTile
-from settings import *
-from inventaire import Inventaire
+
+from src.core import sprites
+from src.core.collisions import CollisionTile
+from src.core.settings import *
+
 
 class Carte:
     
@@ -11,7 +13,7 @@ class Carte:
         self.screen = pygame.display.get_surface()
         # tmxdata
         self.map_name = map_name
-        self.tmxdata = load_pygame(f'assets/Tiled/data/tmx/{self.map_name}.tmx')
+        self.tmxdata = load_pygame(f'src/assets/Tiled/data/tmx/{self.map_name}.tmx')
         self.width = self.tmxdata.width
         self.height = self.tmxdata.height
         self.size_map = (self.width, self.height)
@@ -132,8 +134,8 @@ class Carte:
                         # sprites.player.regenerate()
                         sprites.camera_group = sprites.camera_groups['Overworld']
                         sprites.player.set_pos(sprites.camera_group.carte.get_waypoint('Spawn'))
-                        if os.path.exists('save.json'):
-                            os.remove('save.json')
+                        if os.path.exists('../data/save.json'):
+                            os.remove('../data/save.json')
                         # pygame.quit()
                         is_respawn = True
                         # sys.exit()

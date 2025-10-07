@@ -1,7 +1,7 @@
-import pygame
-from save import SaveData
-from caracter import *
-from items import Item
+from src.domain.caracter import *
+from src.domain.items import Item
+from src.core import sprites
+
 
 class Ennemy(Caracter):
     type = 'Ennemy'

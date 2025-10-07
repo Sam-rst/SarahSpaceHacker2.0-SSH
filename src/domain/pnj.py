@@ -1,4 +1,4 @@
-from caracter import *
+from src.domain.caracter import *
 
 
 class Pnj(Caracter):

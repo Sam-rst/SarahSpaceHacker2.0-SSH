@@ -1,9 +1,7 @@
-import pygame, sys, random
-from dice import Dice
-from save import SaveData
-from player import *
-from camera import *
-from sprites import *
+import sys, random
+from src.domain.player import *
+from src.core.camera import *
+from src.core.sprites import *
 
 screen = pygame.display.get_surface()
 
@@ -31,8 +29,8 @@ class MenuDebut:
         self.drops = []
 
         # Polices de caractères
-        self.font_grand = pygame.font.Font('assets/font/Gixel.ttf', 50)
-        self.font = pygame.font.Font('assets/font/Gixel.ttf', 30)
+        self.font_grand = pygame.font.Font('src/assets/font/Gixel.ttf', 50)
+        self.font = pygame.font.Font('src/assets/font/Gixel.ttf', 30)
 
     def create_drops(self, num_drops):
         for _ in range(num_drops):
@@ -90,7 +88,7 @@ class MenuDebut:
                     screen.blit(text_surface, (drop.x, drop.y))
                     drop.fall()
                     
-                image_commandes = pygame.image.load("assets/touches/commandes.png")
+                image_commandes = pygame.image.load("src/assets/touches/commandes.png")
                 image_commandes = pygame.transform.scale(image_commandes, (1000, 600))
                 screen.blit(image_commandes, (250, 120))
                 
@@ -149,8 +147,8 @@ class MenuTouches:
         self.drops = []
 
         # Polices de caractères
-        self.font_grand = pygame.font.Font('assets/font/Gixel.ttf', 50)
-        self.font = pygame.font.Font('assets/font/Gixel.ttf', 30)
+        self.font_grand = pygame.font.Font('src/assets/font/Gixel.ttf', 50)
+        self.font = pygame.font.Font('src/assets/font/Gixel.ttf', 30)
 
     def create_drops(self, num_drops):
         for _ in range(num_drops):
@@ -201,7 +199,7 @@ class MenuTouches:
                 screen.blit(text_surface, (drop.x, drop.y))
                 drop.fall()
                 
-            image_commandes = pygame.image.load("assets/touches/commandes.png")
+            image_commandes = pygame.image.load("src/assets/touches/commandes.png")
             image_commandes = pygame.transform.scale(image_commandes, (1000, 600))
             screen.blit(image_commandes, (250, 120))
             

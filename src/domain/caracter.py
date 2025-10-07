@@ -1,13 +1,6 @@
-import pygame, time
-from dice import Dice, RiggedDice
-from math import sqrt 
-from weapon import Weapon
-from debug import debug
-from projectiles import Projectile, EnnemiProjectile
-from settings import *
-from random import randint, choice
-from images import *
-import sprites
+from src.core.settings import *
+from src.domain.images import *
+from src.core import sprites
     
 class Caracter(pygame.sprite.Sprite):
     type = "Caracter"

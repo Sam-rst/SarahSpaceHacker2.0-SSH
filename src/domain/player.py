@@ -1,5 +1,5 @@
-from caracter import *
-from sprites import *
+from src.domain.caracter import *
+from src.core.sprites import *
 
 class Player(Caracter):
     type = 'Player'

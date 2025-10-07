@@ -40,14 +40,14 @@ class Menu_Marchand:
                         
                 
             self.screen.fill((0, 0, 0))
-            font_grand = pygame.font.Font('assets/font/Enchanted_Land.otf', 50)
+            font_grand = pygame.font.Font('../../assets/font/Enchanted_Land.otf', 50)
             texte_bienvenue = font_grand.render("Bienvenue chez le marchand", True, (255, 255, 255))
             self.screen.blit(texte_bienvenue, ((self.screen.get_width() - texte_bienvenue.get_width()) / 2, 50))
             
 
             pygame.draw.rect(self.screen, (255, 255, 255), bouton_potion)
             pygame.draw.rect(self.screen, (255, 0, 0), bouton_potion, 3)
-            image = pygame.image.load("assets/potions/potion_heal.png")
+            image = pygame.image.load("../../assets/potions/potion_heal.png")
             self.screen.blit(image, ((self.screen.get_width() - image.get_width()) / 2, 100))
             font = pygame.font.Font(None, 30)
             texte_potion = font.render("1 potion pour 1 piece", True, (0, 0, 0))

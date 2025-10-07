@@ -1,5 +1,5 @@
 import pygame
-from settings import *
+from src.core.settings import *
 
 class DialogBox:
     
@@ -7,18 +7,21 @@ class DialogBox:
     Y_POSITION = screen.get_height() - 200
     
     def __init__(self, nom_perso, texts):
+        if not pygame.font.get_init():
+            pygame.font.init()
+
         self.nom_perso = nom_perso
-        self.box = pygame.image.load('assets/dialog/dialog_box.png')
+        self.box = pygame.image.load('src/assets/dialog/dialog_box.png')
         self.box = pygame.transform.scale(self.box, (1200, 150))
-        self.pnj = pygame.image.load(f'assets/caracters/{self.nom_perso}/right/sprite_1.png')
+        self.pnj = pygame.image.load(f'src/assets/caracters/{self.nom_perso}/right/sprite_1.png')
         self.pnj = pygame.transform.scale(self.pnj, (100, 150))
         self.texts = texts
         self.text_index = 0
         self.letter_index = 0
-        self.font = pygame.font.Font('assets/font/Cyberpunk2.ttf', 30)
+        self.font = pygame.font.Font('src/assets/font/Cyberpunk2.ttf', 30)
         self.reading = False
         self.was_speak = False
-        
+
     def open_dialog(self):
         self.reading = True
         self.text_index = 0
@@ -53,7 +56,7 @@ class Aide:
     def __init__(self, texts):
         self.texts = texts
         self.text_index = 0
-        self.font = pygame.font.Font('assets/font/Cyberpunk2.ttf', 20)
+        self.font = pygame.font.Font('src/assets/font/Cyberpunk2.ttf', 20)
         self.reading = False
         self.was_speak = False
         

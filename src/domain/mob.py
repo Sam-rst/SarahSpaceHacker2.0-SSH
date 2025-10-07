@@ -1,4 +1,4 @@
-from caracter import Caracter
+from src.domain.caracter import Caracter
 
 class Mob(Caracter):
     
