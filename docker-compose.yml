@@ -9,4 +9,4 @@ services:
       - PYTHONUNBUFFERED=1
     volumes:
       - .:/app  # Permet de modifier ton code sans rebuild complet
-    command: uv run server.py --host 0.0.0.0 --port 50006
+    command: uv run src/network/server.py --host 0.0.0.0 --port 50006
