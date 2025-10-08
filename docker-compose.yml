@@ -1,0 +1,12 @@
+services:
+  game-server:
+    build: .
+    container_name: SLI-SarahLostIsland
+    ports:
+      - "50006:50006"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app  # Permet de modifier ton code sans rebuild complet
+    command: uv run server.py --host 0.0.0.0 --port 50006
