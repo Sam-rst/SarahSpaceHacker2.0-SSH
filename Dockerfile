@@ -10,8 +10,8 @@ WORKDIR /app
 # Copie uniquement les fichiers nécessaires pour l’installation
 COPY pyproject.toml uv.lock* ./
 
-# Installe les dépendances du projet avec uv
-RUN uv pip install -e .
+# Installe les dépendances dans l’environnement système
+RUN uv pip install --system -e .
 
 # Copie le reste du code source
 COPY . .
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 50006
 
 # Démarre ton serveur via uv
-CMD ["uv", "run", "server.py", "--host", "0.0.0.0", "--port", "50006"]
+CMD ["uv", "run", "src/network/server.py", "--host", "0.0.0.0", "--port", "50006"]
