@@ -4,12 +4,12 @@ import threading
 from typing import Optional, Tuple
 
 # Paramètres par défaut
-DEFAULT_IP = "127.0.0.1"
-DEFAULT_PORT = 50007
+DEFAULT_IP = "sli.stks.fr"
+DEFAULT_PORT = 50006
 CONNECT_TIMEOUT = 3.0  # secondes
 
 class InputField:
-    def __init__(self, rect: pygame.Rect, text: str, font: pygame.font.Font, allowed: str = "ip"):
+    def __init__(self, rect: pygame.Rect, text: str, font: pygame.font.Font, allowed: str = "host"):
         self.rect = rect
         self.text = text
         self.font = font
@@ -37,6 +37,10 @@ class InputField:
                         self.text += ch
                 elif self.allowed == "port":
                     if ch.isdigit():
+                        self.text += ch
+                elif self.allowed == "host":
+                    # Autorise lettres, chiffres, points et tirets (ex: "mon-serveur.local")
+                    if ch.isalnum() or ch in ".-":
                         self.text += ch
 
     def update(self, dt: float):
@@ -138,7 +142,7 @@ class MenuServerConnection:
         font_small = pygame.font.SysFont(None, 22)
 
         # Champs de saisie
-        ip_field = InputField(pygame.Rect(220, 140, 280, 40), default_ip, font, allowed="ip")
+        ip_field = InputField(pygame.Rect(220, 140, 280, 40), default_ip, font, allowed="host")
         port_field = InputField(pygame.Rect(220, 200, 120, 40), str(default_port), font, allowed="port")
 
         connector = ServerConnector()
