@@ -4,6 +4,8 @@ import json
 import threading
 import time
 
+from src.ui.menus.menu_server_connection import MenuServerConnection
+
 # --- Paramètres ---
 SERVER_IP = "10.60.104.178"   # à remplacer par l'IP du serveur si besoin
 SERVER_PORT = 50006
@@ -139,4 +141,10 @@ def run_game(host, port):
 
 if __name__ == "__main__":
     print("[CLIENT] Démarrage...")
-    run_game(SERVER_IP, SERVER_PORT)
+    authenticated = False
+    while not authenticated:
+        host, port = MenuServerConnection().run_connect_menu()
+        if host and port:
+            authenticated = True
+
+    run_game(host, port)
