@@ -158,7 +158,7 @@ while True:
     game_over_menu.draw()
 
     # DEBUG : Permettre de faire apparaitre tous les sprites
-    # sprites.camera_group.debug()
+    sprites.camera_group.debug()
 
     pygame.display.update()
     clock.tick(60)
