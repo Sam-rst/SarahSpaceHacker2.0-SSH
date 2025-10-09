@@ -1,8 +1,10 @@
+import pygame
 import pytmx, sys, os
+from pytmx import TiledObjectGroup, TiledObject
 from pytmx.util_pygame import load_pygame
 
 from src.core import sprites
-from src.core.collisions import CollisionTile
+from src.core.collisions import CollisionObject
 from src.core.settings import *
 
 
@@ -13,7 +15,7 @@ class Carte:
         self.screen = pygame.display.get_surface()
         # tmxdata
         self.map_name = map_name
-        self.tmxdata = load_pygame(f'src/assets/Tiled/data/tmx/{self.map_name}.tmx')
+        self.tmxdata = load_pygame(f'src/assets/maps/tmx/{self.map_name}.tmx')
         self.width = self.tmxdata.width
         self.height = self.tmxdata.height
         self.size_map = (self.width, self.height)
@@ -29,7 +31,7 @@ class Carte:
         self.layers = self.get_layers()
 
         self.collision_layers = []
-        self.collision_tiles = []
+        self.collision_objects = []
 
     def get_size_map(self):
         return self.size_map
@@ -49,19 +51,23 @@ class Carte:
     def get_size_map_width(self):
         return self.size_map_width
     
-    def get_collision_tiles(self):
-        return self.collision_tiles
+    def get_collision_objects(self):
+        return self.collision_objects
     
     def get_size_map_height(self):
         return self.size_map_height
 
     def create_collisions(self, groups):
-        for layer in self.layers:
-            if layer.name in self.collision_layers:
-                for x, y, image in layer.tiles():
-                    # print(f'Le layer : {layer.name} va créer les sprites de collision')
-                    image = pygame.transform.scale(image, (self.get_tilewidth(), self.get_tileheight()))
-                    self.collision_tiles.append(CollisionTile(image, (x*self.get_tilewidth(), y * self.get_tileheight()), groups))
+        for group in self.tmxdata.objectgroups:
+            if group.name == "Collisions":
+                for obj in group:
+                    x, y, width, height = obj.x, obj.y, obj.width, obj.height
+
+                    surface = pygame.Surface((width * scale, height * scale), pygame.SRCALPHA)
+                    # image = pygame.transform.scale(surface, (self.get_tilewidth(), self.get_tileheight()))
+                    collision_object = CollisionObject(surface, ((x + width / 2)* scale, (y + height / 2)*scale), groups)
+                    self.collision_objects.append(collision_object)
+        print(f"🎯 {len(self.collision_objects)} collisions chargées avec surfaces.")
 
     def get_layers(self):
         layer_list = []
@@ -99,7 +105,7 @@ class Carte:
             obj = self.get_obj('Waypoints', name_waypoint)
             return self.get_pos_obj(obj)
         except:
-            raise ValueError("Je n'arrive pas à retrouver ton waypoint")
+            raise ValueError(f"Je n'arrive pas à retrouver ton waypoint : {name_waypoint}")
     
     def get_pickup_distance(self, tmx_data):
         # Extraire la position de l'objet à collecter

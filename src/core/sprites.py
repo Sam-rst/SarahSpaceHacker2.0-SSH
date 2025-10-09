@@ -49,31 +49,27 @@ aide_teleportation = Aide(["Appuie sur le bouton [E] pour te téléporter"])
 aide_terminal = Aide(["Appuie sur le bouton [A] pour ouvrir le terminal"])
 liste_aides_message = [aide_terminal, aide_teleportation]
 
-first_room_collisions = pygame.sprite.Group()
-salon_collisions = pygame.sprite.Group()
-teleporter_collisions = pygame.sprite.Group()
-firewall_collisions = pygame.sprite.Group()
-server_collisions = pygame.sprite.Group()
-bdd_collisions = pygame.sprite.Group()
-final_collisions = pygame.sprite.Group()
+port_collisions = pygame.sprite.Group()
+city_collisions = pygame.sprite.Group()
+bar_collisions = pygame.sprite.Group()
+bar_hallway_toilets_collisions = pygame.sprite.Group()
+bar_toilets_collisions = pygame.sprite.Group()
+bar_cave_collisions = pygame.sprite.Group()
 
 camera_groups = {
-    "FirstRoom": CameraGroup(name_map='FirstRoom', list_teleporters=[('EntranceSalon', 'Salon', 'EntranceSalon')], layers_obstacles=(['Collisions'], first_room_collisions), messages=dialogues_caporal_intro, name_interaction="AucuneInteraction"),
-    "Salon": CameraGroup(name_map='Salon', list_teleporters=[('EntranceTeleporter', 'Teleporter', 'EntranceTeleporter'), ('ExitSalon', 'FirstRoom', 'ExitSalon')], layers_obstacles=(['Collisions'], salon_collisions), messages=dialogues_Emma_salon, name_interaction="AucuneInteraction"),
-    "Teleporter": CameraGroup(name_map='Teleporter', list_teleporters=[('ExitTeleporter', 'Salon', 'ExitTeleporter'), ('EntranceFirewall', 'FirewallFerme', 'EntranceFirewall')], layers_obstacles=(['Collisions'], teleporter_collisions), messages=dialogues_Emma_teleporter, name_interaction="AucuneInteraction"),
-    "FirewallFerme": CameraGroup(name_map='FirewallFerme', list_teleporters=[('ExitFirewall', 'Teleporter', 'ExitFirewall')], layers_obstacles=(['Collisions'], firewall_collisions), messages=dialogues_Emma_firewall_ferme, name_interaction="Terminal"),
-    "FirewallOuvert": CameraGroup(name_map='FirewallOuvert', list_teleporters=[('ExitFirewall', 'Teleporter', 'ExitFirewall'), ('EntranceServer', 'Server', 'EntranceServer')], layers_obstacles=(['Collisions'], firewall_collisions), messages=dialogues_Emma_firewall_ouvert, name_interaction="AucuneInteraction"),
-    "Server": CameraGroup(name_map='Server', list_teleporters=[('ExitServer', 'FirewallOuvert', 'ExitServer'), ('EntranceBDD', 'BDD', 'EntranceBDD')], layers_obstacles=(['Collisions'], server_collisions), messages=dialogues_Emma_server, name_interaction="BDD"),
-    "BDD": CameraGroup(name_map='BDD', list_teleporters=[('ExitBDD', 'Server', 'ExitBDD'), ('EntranceFinal', 'FinalRoom', 'EntranceFinal')], layers_obstacles=(['Collisions'], bdd_collisions), messages=dialogues_Emma_BDD, name_interaction="Dezoom"),
-    "FinalRoom": CameraGroup(name_map='FinalRoom', list_teleporters=[('EntranceFinal', 'FinalRoom', 'EntranceFinal'), ('ExitFinal', 'BDD', 'ExitFinal')], layers_obstacles=(['Collisions'], final_collisions), messages=dialogues_Emma_final, name_interaction="Parchemin"),
+    # "Port": CameraGroup(name_map='Port', list_teleporters=[('EntranceSalon', 'Salon', 'EntranceSalon')], layers_obstacles=(['Collisions'], first_room_collisions), messages=dialogues_caporal_intro, name_interaction="AucuneInteraction"),
+    # "City": CameraGroup(name_map='City', list_teleporters=[('EntranceTeleporter', 'Teleporter', 'EntranceTeleporter'), ('ExitSalon', 'FirstRoom', 'ExitSalon')], layers_obstacles=(['Collisions'], salon_collisions), messages=dialogues_Emma_salon, name_interaction="AucuneInteraction"),
+    "Bar": CameraGroup(name_map='Bar', list_teleporters=[('EntranceBarHallwayToilets', 'BarHallwayToilets', 'EntranceBarHallwayToilets'), ('EntranceBarCave', 'BarCave', 'EntranceBarCave')], layers_obstacles=(['Collisions'], bar_collisions)),
+    "BarHallwayToilets": CameraGroup(name_map='BarHallwayToilets', list_teleporters=[('ExitBarHallwayToilets', 'Bar', 'ExitBarHallwayToilets'), ('EntranceBarToilets', 'BarToilets', 'EntranceBarToilets')], layers_obstacles=(['Collisions'], bar_hallway_toilets_collisions)),
+    "BarToilets": CameraGroup(name_map='BarToilets', list_teleporters=[('ExitBarToilets', 'BarHallwayToilets', 'ExitBarToilets')], layers_obstacles=(['Collisions'], bar_toilets_collisions)),
+    "BarCave": CameraGroup(name_map='BarCave', list_teleporters=[('ExitBarCave', 'Bar', 'ExitBarCave')], layers_obstacles=(['Collisions'], bar_cave_collisions)),
 }
-# Water Fall ;)
 
 save_data = SaveData('src/data/save.json')
 map_name = save_data.load_player_map()
 mob_dead = save_data.load_mob_dead()
 
 if map_name is None:
-    camera_group = camera_groups["FirstRoom"]
+    camera_group = camera_groups["BarToilets"]
 else:
     camera_group = camera_groups[map_name]

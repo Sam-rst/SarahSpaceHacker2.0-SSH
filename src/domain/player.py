@@ -9,10 +9,17 @@ class Player(Caracter):
         self.transform_to_player()
     
     def transform_to_player(self):
-        self.frames["Bottom Walk"] = sarah_bottom_walks
-        self.frames["Left Walk"] = sarah_left_walks
-        self.frames["Top Walk"] = sarah_top_walks
-        self.frames["Right Walk"] = sarah_right_walks
+        action_name = "Walk"
+        frames = self.load_character_animations(
+            base_path="src/assets/sprites/caracters",
+            character_name="sarah",
+            action_name=action_name
+        )
+
+        self.frames[f"Bottom {action_name}"] = frames[f"Bottom {action_name}"] if frames[f"Bottom {action_name}"] else []
+        self.frames[f"Left {action_name}"] = frames[f"Left {action_name}"] if frames[f"Left {action_name}"] else []
+        self.frames[f"Top {action_name}"] = frames[f"Top {action_name}"] if frames[f"Top {action_name}"] else []
+        self.frames[f"Right {action_name}"] = frames[f"Right {action_name}"] if frames[f"Right {action_name}"] else []
         self.image = self.frames[self.animation_direction][self.animation_index]
 
     
