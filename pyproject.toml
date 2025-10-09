@@ -1,5 +1,5 @@
 [project]
-name = "sarahspacehacker-ssh"
+name = "SLI-SarahLostIsland"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,4 +7,5 @@ requires-python = ">=3.13"
 dependencies = [
     "pygame>=2.6.1",
     "pytmx>=3.32",
+    "uv>=0.9.0",
 ]

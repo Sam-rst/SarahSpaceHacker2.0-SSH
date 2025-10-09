@@ -3,7 +3,7 @@ from src.core.carte import Carte
 from src.domain.ennemy import Ennemy
 
 class CameraGroup(pygame.sprite.Group):
-    def __init__(self, name_map, list_teleporters, layers_obstacles, messages, name_interaction):
+    def __init__(self, name_map, list_teleporters, layers_obstacles, name_interaction=None, messages=None):
         super().__init__()
         self.screen = pygame.display.get_surface()
 
@@ -20,7 +20,7 @@ class CameraGroup(pygame.sprite.Group):
 
         # Les Teleporters
         self.teleporters = [self.carte.create_teleportation(tp[0], tp[1], tp[2], [self]) for tp in list_teleporters]
-        self.interaction = self.carte.create_interaction(name_interaction, [self])
+        self.interaction = self.carte.create_interaction(name_interaction, [self]) if name_interaction is not None else None
         
         #Les obstacles
         self.carte.collision_layers = layers_obstacles[0]

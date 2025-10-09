@@ -40,53 +40,53 @@ caracter_right_walks = [
 
 # ~~~~~~~~~~===> Sarah's images <===~~~~~~~~~~
 
-sarah_bottom_walks =  [
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_1.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_2.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_3.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_4.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_5.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_6.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_7.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_8.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/bottom/sprite_9.png').convert_alpha(),
-    ]
-
-sarah_left_walks =  [
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_1.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_2.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_3.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_4.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_5.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_6.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_7.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_8.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/left/sprite_9.png').convert_alpha(),
-    ]
-
-sarah_top_walks =  [
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_1.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_2.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_3.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_4.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_5.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_6.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_7.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_8.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/top/sprite_9.png').convert_alpha(),
-    ]
-
-sarah_right_walks =  [
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_1.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_2.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_3.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_4.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_5.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_6.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_7.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_8.png').convert_alpha(),
-    pygame.image.load('src/assets/caracters/sarah/right/sprite_9.png').convert_alpha(),
-    ]
+# sarah_bottom_run =  [
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_1.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_2.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_3.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_4.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_5.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_6.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_7.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_8.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/bottom/sprite_9.png').convert_alpha(),
+#     ]
+#
+# sarah_left_run =  [
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_1.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_2.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_3.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_4.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_5.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_6.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_7.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_8.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/left/sprite_9.png').convert_alpha(),
+#     ]
+#
+# sarah_top_run =  [
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_1.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_2.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_3.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_4.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_5.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_6.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_7.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_8.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/top/sprite_9.png').convert_alpha(),
+#     ]
+#
+# sarah_right_run =  [
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_1.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_2.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_3.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_4.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_5.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_6.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_7.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_8.png').convert_alpha(),
+#     pygame.image.load('src/assets/sprites/caracters/sarah/actions/right/sprite_9.png').convert_alpha(),
+#     ]
 
 # ~~~~~~~~~~===> Emma's images <===~~~~~~~~~~
 emma_bottom_walks =  [

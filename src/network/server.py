@@ -3,6 +3,7 @@ import json
 import socket
 import threading
 import time
+import ssl
 from itertools import count
 from random import randint
 
@@ -18,6 +19,29 @@ _id_counter = count(1)
 stop_event = threading.Event()
 
 class Server:
+    def make_ssl_context(self, certfile: str, keyfile: str, cafile: str | None = None, require_client_cert: bool = False):
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        # pour sécurité : n'autorise que TLS >=1.2 (ou 1.3 si disponible)
+        try:
+            context.minimum_version = ssl.TLSVersion.TLSv1_2
+        except AttributeError:
+            # fallback ancien python
+            context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+
+        context.load_cert_chain(certfile=certfile, keyfile=keyfile)
+
+        if require_client_cert:
+            # exiger certificat client signé par CA (mutual TLS)
+            context.verify_mode = ssl.CERT_REQUIRED
+            if cafile:
+                context.load_verify_locations(cafile=cafile)
+        else:
+            context.verify_mode = ssl.CERT_NONE
+
+        # Désactiver vieux ciphers faibles si tu veux forcer un ensemble restreint :
+        # context.set_ciphers("ECDHE+AESGCM:!aNULL:!MD5:!3DES")
+        return context
+
     def clamp(self, v, lo, hi):
         return max(lo, min(hi, v))
 
@@ -142,6 +166,24 @@ class Server:
             print(f"[-] Joueur {player_id} déconnecté")
             self.remove_player(player_id)
 
+    def _handle_wrapped_client(self, conn, addr):
+        try:
+            # Si c'est un SSLSocket mais handshake non fait, le faire ici
+            if isinstance(conn, ssl.SSLSocket):
+                try:
+                    conn.do_handshake()
+                except ssl.SSLError as e:
+                    print(f"[TLS] Handshake failed from {addr}: {e}")
+                    conn.close()
+                    return
+            # déléguer au handler existant (adapté pour lire conn)
+            self.handle_client(conn, addr)
+        except Exception as e:
+            print("Erreur dans _handle_wrapped_client:", e)
+            try:
+                conn.close()
+            except OSError:
+                pass
 
     def run(self, host: str, port: int):
         t_broadcast = threading.Thread(target=self.broadcast_loop, name="broadcast", daemon=True)
@@ -159,7 +201,7 @@ class Server:
                         conn, addr = s.accept()
                     except socket.timeout:
                         continue
-                    threading.Thread(target=self.handle_client, args=(conn, addr), daemon=True).start()
+                    threading.Thread(target=self._handle_wrapped_client, args=(conn, addr), daemon=True).start()
             except KeyboardInterrupt:
                 print("\n[SERVER] Arrêt demandé...")
             finally:
