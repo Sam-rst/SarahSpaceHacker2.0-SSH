@@ -1,4 +1,5 @@
 from src.domain.caracter import *
+from random import randint
 
 
 class Pnj(Caracter):
@@ -21,7 +22,6 @@ class Pnj(Caracter):
         self.image = self.frames[self.animation_direction][self.animation_index]
         self.rect = self.image.get_rect(center = self.get_pos())
         self.set_speed(100)
-        self.animation_speed = 0.2
 
     def change_direction(self):
         if randint(0,1):

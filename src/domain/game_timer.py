@@ -16,10 +16,11 @@ class GameTimer:
         self.game_over = False
         self.last_tick = pygame.time.get_ticks()
         self.blink_timer = 0
+        self.begins = False
 
     def update(self):
         """Met à jour le timer toutes les secondes"""
-        if self.game_over:
+        if self.game_over or not self.begins:
             return
         now = pygame.time.get_ticks()
         if now - self.last_tick >= 1000:  # 1 seconde
@@ -30,7 +31,7 @@ class GameTimer:
 
     def draw(self, surface):
         """Affiche le timer en haut à gauche"""
-        if self.game_over:
+        if self.game_over or not self.begins:
             return
         minutes = self.time_left // 60
         seconds = self.time_left % 60

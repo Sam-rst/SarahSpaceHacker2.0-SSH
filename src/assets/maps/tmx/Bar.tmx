@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="47">
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="50">
  <tileset firstgid="1" source="../tsx/dark-wood.tsx"/>
  <tileset firstgid="513" source="../tsx/stone_house_interior.tsx"/>
  <tileset firstgid="769" source="../tsx/lpc-ship-preview.tsx"/>
@@ -41,6 +41,11 @@
   <object id="7" name="Spawn" x="478.362" y="584.195">
    <point/>
   </object>
+  <object id="47" name="ExitBar" x="452" y="566" width="56.6667" height="61.3333"/>
+  <object id="48" name="EntranceBar" x="477.333" y="590.667">
+   <point/>
+  </object>
+  <object id="49" name="PrintAlcools" x="414" y="257.333" width="68" height="84"/>
  </objectgroup>
  <objectgroup id="8" name="Collisions">
   <object id="8" x="394" y="227.5" width="107" height="91"/>

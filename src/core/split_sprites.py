@@ -6,8 +6,8 @@ pygame.init()
 pygame.display.set_mode((1, 1))
 
 # --- Paramètres ---
-sprite_path = "src/assets/sprites/caracters/sarah/walk.png"  # Ton spritesheet
-output_folder = "src/assets/sprites/caracters/sarah/actions/walk"
+sprite_path = "src/assets/sprites/caracters/lea/walk.png"  # Ton spritesheet
+output_folder = "src/assets/sprites/caracters/lea/actions/walk"
 frame_width = 64
 frame_height = 64
 

@@ -46,23 +46,31 @@ touche_fleche_haut = Touche("touche_fleche_haut", touches)
 touche_escape = Touche("touche_escape", touches)
 
 aide_teleportation = Aide(["Appuie sur le bouton [E] pour te téléporter"])
-aide_terminal = Aide(["Appuie sur le bouton [A] pour ouvrir le terminal"])
-liste_aides_message = [aide_terminal, aide_teleportation]
+aide_interaction = Aide(["Appuie sur le bouton [F] pour ouvrir le menu"])
+liste_aides_message = [aide_interaction, aide_teleportation]
 
-port_collisions = pygame.sprite.Group()
-city_collisions = pygame.sprite.Group()
+city_before_enigm_collisions = pygame.sprite.Group()
+city_after_enigm_collisions = pygame.sprite.Group()
 bar_collisions = pygame.sprite.Group()
 bar_hallway_toilets_collisions = pygame.sprite.Group()
 bar_toilets_collisions = pygame.sprite.Group()
-bar_cave_collisions = pygame.sprite.Group()
+bar_cave_before_opened_chest_collisions = pygame.sprite.Group()
+bar_cave_after_opened_chest_collisions = pygame.sprite.Group()
+transition_city_port_collisions = pygame.sprite.Group()
+port_collisions = pygame.sprite.Group()
+labyrinthe_collisions = pygame.sprite.Group()
 
 camera_groups = {
-    # "Port": CameraGroup(name_map='Port', list_teleporters=[('EntranceSalon', 'Salon', 'EntranceSalon')], layers_obstacles=(['Collisions'], first_room_collisions), messages=dialogues_caporal_intro, name_interaction="AucuneInteraction"),
-    # "City": CameraGroup(name_map='City', list_teleporters=[('EntranceTeleporter', 'Teleporter', 'EntranceTeleporter'), ('ExitSalon', 'FirstRoom', 'ExitSalon')], layers_obstacles=(['Collisions'], salon_collisions), messages=dialogues_Emma_salon, name_interaction="AucuneInteraction"),
-    "Bar": CameraGroup(name_map='Bar', list_teleporters=[('EntranceBarHallwayToilets', 'BarHallwayToilets', 'EntranceBarHallwayToilets'), ('EntranceBarCave', 'BarCave', 'EntranceBarCave')], layers_obstacles=(['Collisions'], bar_collisions)),
-    "BarHallwayToilets": CameraGroup(name_map='BarHallwayToilets', list_teleporters=[('ExitBarHallwayToilets', 'Bar', 'ExitBarHallwayToilets'), ('EntranceBarToilets', 'BarToilets', 'EntranceBarToilets')], layers_obstacles=(['Collisions'], bar_hallway_toilets_collisions)),
-    "BarToilets": CameraGroup(name_map='BarToilets', list_teleporters=[('ExitBarToilets', 'BarHallwayToilets', 'ExitBarToilets')], layers_obstacles=(['Collisions'], bar_toilets_collisions)),
-    "BarCave": CameraGroup(name_map='BarCave', list_teleporters=[('ExitBarCave', 'Bar', 'ExitBarCave')], layers_obstacles=(['Collisions'], bar_cave_collisions)),
+    "Bar": CameraGroup(name_map='Bar', list_teleporters=[('EntranceBarHallwayToilets', 'BarHallwayToilets', 'EntranceBarHallwayToilets'), ('EntranceBarCave', 'BarCaveBeforeOpenedChest', 'EntranceBarCave'), ('ExitBar', 'CityBeforeEnigm', 'ExitBar')], layers_obstacles=(['Collisions'], bar_collisions), name_interaction="PrintAlcools"),
+    "BarHallwayToilets": CameraGroup(name_map='BarHallwayToilets', list_teleporters=[('ExitBarHallwayToilets', 'Bar', 'ExitBarHallwayToilets'), ('EntranceBarToilets', 'BarToilets', 'EntranceBarToilets')], layers_obstacles=(['Collisions'], bar_hallway_toilets_collisions), name_interaction="SomonGame"),
+    "BarToilets": CameraGroup(name_map='BarToilets', list_teleporters=[('ExitBarToilets', 'BarHallwayToilets', 'ExitBarToilets')], layers_obstacles=(['Collisions'], bar_toilets_collisions), name_interaction="TicketDeCaisse"),
+    "BarCaveBeforeOpenedChest": CameraGroup(name_map='BarCaveBeforeOpenedChest', list_teleporters=[('ExitBarCave', 'Bar', 'ExitBarCave')], layers_obstacles=(['Collisions'], bar_cave_before_opened_chest_collisions), name_interaction="CadenasGame"),
+    "BarCaveAfterOpenedChest": CameraGroup(name_map='BarCaveAfterOpenedChest', list_teleporters=[('ExitBarCave', 'Bar', 'ExitBarCave')], layers_obstacles=(['Collisions'], bar_cave_after_opened_chest_collisions), name_interaction="AucuneInteraction"),
+    "CityBeforeEnigm": CameraGroup(name_map='CityBeforeEnigm', list_teleporters=[('EntranceBar', 'Bar', 'EntranceBar'), ('ExitCity', 'TransitionCityPort', 'ExitCity'), ('TrapLabyrinthe', 'Labyrinthe', 'TrapLabyrinthe')], layers_obstacles=(['Collisions'], city_before_enigm_collisions), name_interaction="AucuneInteraction"),
+    "CityAfterEnigm": CameraGroup(name_map='CityAfterEnigm', list_teleporters=[('EntranceBar', 'Bar', 'EntranceBar'), ('ExitCity', 'TransitionCityPort', 'ExitCity')], layers_obstacles=(['Collisions'], city_after_enigm_collisions), name_interaction="AucuneInteraction"),
+    "Labyrinthe": CameraGroup(name_map='Labyrinthe', list_teleporters=[('ExitLabyrinthe', 'CityAfterEnigm', 'ExitLabyrinthe')], layers_obstacles=(['Collisions'], labyrinthe_collisions), name_interaction="OpenPanneauMeteo"),
+    "TransitionCityPort": CameraGroup(name_map='TransitionCityPort', list_teleporters=[('EntrancePort', 'Port', 'EntrancePort'), ('EntranceCity', 'CityBeforeEnigm', 'EntranceCity')], layers_obstacles=(['Collisions'], transition_city_port_collisions), name_interaction="AucuneInteraction"),
+    "Port": CameraGroup(name_map='Port', list_teleporters=[('ExitPort', 'TransitionCityPort', 'ExitPort')], layers_obstacles=(['Collisions'], port_collisions), name_interaction="FinishGame"),
 }
 
 save_data = SaveData('src/data/save.json')

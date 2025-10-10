@@ -1,12 +1,16 @@
 import sys, time
 
 from src.core import sprites
+from src.core.sprites import camera_group
 from src.domain.game_timer import GameTimer
+from src.ui.menus.menu_cadenas_coffre import CadenasGame
 from src.ui.menus.menu_debut import MenuDebut
 from src.ui.menus.menu_fin import MenuFin
 from src.ui.menus.menu_game_over import MenuGameOver
 from src.domain.pnj import *
 from src.ui.menus.menu_mysql import LoginPage
+from src.ui.menus.menu_print_image import MenuPrintImage
+from src.ui.menus.menu_somon_game import SomonGame, GameState
 from src.ui.menus.menu_terminal import Terminal
 from src.ui.menus.menu_touches import MenuTouches
 from src.ui.menus.menu_transition import Transition
@@ -24,6 +28,12 @@ menuDebut = MenuDebut()
 menuFin = MenuFin()
 transition = Transition()
 menuTouches = MenuTouches()
+somon_menu = SomonGame()
+cadenas_menu = CadenasGame()
+ticket_caisse_menu =  MenuPrintImage("src/assets/interactions/ticket_caisse_bar.png")
+panneau_labyrinthe_menu =  MenuPrintImage("src/assets/interactions/pancarte_meteo_fullscreen.png")
+article_journal_ouverture_menu =  MenuPrintImage("src/assets/interactions/article_journal_ouverture.png")
+affiche_tarifs_alcools_menu =  MenuPrintImage("src/assets/interactions/affiche_des_tarifs_detaille.png")
 
 # Saves
 sprites.player = menuDebut.run()
@@ -38,7 +48,7 @@ sprites.camera_group.set_type_camera("center")
 # Game timer
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 50)
-game_timer = GameTimer(total_seconds=1*10, font=font)
+game_timer = GameTimer(total_seconds=5*60, font=font)
 
 # Game Over
 game_over_menu = MenuGameOver(screen, font)
@@ -101,23 +111,37 @@ while True:
                 # elif messages.reading:
                 #    messages.letter_index = len(messages.texts[messages.text_index])
                 
-            # if sprites.player.rect.colliderect(sprites.camera_group.interaction.rect):
-            #     sprites.aide_terminal.open_dialog()
-            #     if event.key == pygame.K_a:
-            #         if sprites.camera_group.interaction.name == "Terminal":
-            #             cmd.run()
-            #             if cmd.is_good:
-            #                 sprites.camera_group = sprites.camera_groups["FirewallOuvert"]
-            #                 sprites.camera_group.messages.open_dialog()
-            #                 sprites.aide_terminal.close_dialog()
-            #
-            #         elif sprites.camera_group.interaction.name == "BDD":
-            #             login_page.run()
-            #
-            #         elif sprites.camera_group.interaction.name == "Parchemin":
-            #             menuFin.run()
-            # else:
-            #     sprites.aide_terminal.close_dialog()
+            if sprites.player.rect.colliderect(sprites.camera_group.interaction.rect):
+                sprites.aide_interaction.open_dialog()
+                if event.key == pygame.K_f:
+                    if sprites.camera_group.interaction.name == "SomonGame":
+                        somon_menu.run()
+                        if somon_menu.game_state == GameState.SUCCESS:
+                            sprites.camera_group = sprites.camera_groups["BarHallwayToilets"]
+                            # sprites.camera_group.messages.open_dialog()
+                            sprites.aide_interaction.close_dialog()
+
+                    elif sprites.camera_group.interaction.name == "CadenasGame":
+                        cadenas_menu.run()
+                        sprites.camera_group = sprites.camera_groups["BarCaveBeforeOpenedChest"]
+
+                    elif sprites.camera_group.interaction.name == "TicketDeCaisse":
+                        ticket_caisse_menu.run()
+                        sprites.camera_group = sprites.camera_groups["BarToilets"]
+
+                    elif sprites.camera_group.interaction.name == "PrintAlcools":
+                        affiche_tarifs_alcools_menu.run()
+                        sprites.camera_group = sprites.camera_groups["Bar"]
+
+                    elif sprites.camera_group.interaction.name == "PrintJournal":
+                        affiche_tarifs_alcools_menu.run()
+                        sprites.camera_group = sprites.camera_groups["Bar"]
+
+                    elif sprites.camera_group.interaction.name == "FinishGame":
+                        menuFin.run()
+
+            else:
+                sprites.aide_interaction.close_dialog()
 
     if sprites.camera_group.messages:
         if not sprites.camera_group.messages.reading:
@@ -153,12 +177,15 @@ while True:
     if game_timer.is_game_over():
         game_over_menu.start()
 
+    if camera_group.carte.map_name == "Bar":
+        game_timer.begins = True
+
     # Mise à jour et dessin du menu
     game_over_menu.update()
     game_over_menu.draw()
 
     # DEBUG : Permettre de faire apparaitre tous les sprites
-    sprites.camera_group.debug()
+    # sprites.camera_group.debug()
 
     pygame.display.update()
     clock.tick(60)

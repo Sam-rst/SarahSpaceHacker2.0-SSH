@@ -32,7 +32,7 @@ class Caracter(pygame.sprite.Sprite):
         self.image = self.frames[self.animation_direction][self.animation_index]
         # 🔧 FIX : Utiliser une taille cohérente
         self.image = pygame.transform.scale(self.image, (64 * (scale-1), 64 * (scale-1)))
-        self.animation_speed = 0.1
+        self.animation_speed = 0.35
         self.is_moving = False
         self.is_attack = False
 

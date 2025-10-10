@@ -20,7 +20,7 @@ class MenuDebut:
         # Couleurs
         self.BLACK = (0, 0, 0)
         self.WHITE = (255, 255, 255)
-        self.GREEN = (0, 255, 0)
+        self.CYAN = (50, 180, 255)
 
         # Création de la liste des caractères "1" et "0"
         self.characters = ["0", "1"]
@@ -57,7 +57,7 @@ class MenuDebut:
             bouton_start = pygame.Rect((self.WIDTH - largeur_bouton) / 2, 800, largeur_bouton, 50)
 
             # Créer des gouttes de texte "Matrix" au début
-            self.create_drops(50)  # Nombre initial de gouttes
+            # self.create_drops(50)  # Nombre initial de gouttes
 
             while True:
                 for event in pygame.event.get():
@@ -70,6 +70,9 @@ class MenuDebut:
                             sys.exit()
                     elif event.type == pygame.MOUSEBUTTONDOWN:
                         if bouton_start.collidepoint(pygame.mouse.get_pos()):
+                            print("#"*40)
+                            print(camera_group.carte.map_name)
+                            print("#"*40)
                             player = Player("Sarah", camera_group.carte.get_waypoint('Spawn'),
                                             [player_sprite] + list(camera_groups.values()))
                             player_position = {"x": player.pos.x, "y": player.pos.y}
@@ -80,12 +83,12 @@ class MenuDebut:
 
                 screen.fill(self.BLACK)
 
-                texte_bienvenue = self.font_grand.render("Bienvenue dans Sarah Space Hacker", True, self.GREEN)
+                texte_bienvenue = self.font_grand.render("Bienvenue dans Sarah Lost Island : Les retours aux sources !", True, self.CYAN)
                 screen.blit(texte_bienvenue, ((self.WIDTH - texte_bienvenue.get_width()) / 2, 150))
 
                 # Dessiner les gouttes de texte "Matrix"
                 for drop in self.drops:
-                    text_surface = self.font.render(drop.character, True, self.GREEN)
+                    text_surface = self.font.render(drop.character, True, self.CYAN)
                     screen.blit(text_surface, (drop.x, drop.y))
                     drop.fall()
 
@@ -93,7 +96,7 @@ class MenuDebut:
                 image_commandes = pygame.transform.scale(image_commandes, (1000, 600))
                 screen.blit(image_commandes, (250, 120))
 
-                pygame.draw.rect(screen, self.GREEN, bouton_start, border_radius=10)
+                pygame.draw.rect(screen, self.CYAN, bouton_start, border_radius=10)
                 pygame.draw.rect(screen, self.BLACK, bouton_start, 3, border_radius=10)
 
                 texte_start = self.font.render("Commencer", True, self.BLACK)
