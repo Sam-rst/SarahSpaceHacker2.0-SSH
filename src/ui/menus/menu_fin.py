@@ -74,7 +74,7 @@ class MenuFin:
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if continue_button.collidepoint(event.pos):
                             menu_open = False
-                            sprites.camera_group = camera_groups["Salon"]
+                            sprites.camera_group = camera_groups["BarToilets"]
                         elif quit_button.collidepoint(event.pos):
                             pygame.quit()
                             sys.exit()

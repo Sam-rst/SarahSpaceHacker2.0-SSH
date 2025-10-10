@@ -177,8 +177,8 @@ while True:
     if game_timer.is_game_over():
         game_over_menu.start()
 
-    if camera_group.carte.map_name == "Bar":
-        game_timer.begins = True
+    # if camera_group.carte.map_name == "Bar":
+    game_timer.begins = True
 
     # Mise à jour et dessin du menu
     game_over_menu.update()

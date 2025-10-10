@@ -2,6 +2,7 @@
 <map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="7">
  <tileset firstgid="1" source="../../../../../The_Quest-ionnable_Heroe/graphics/Tiled/data/tsx/dungeon_tiles2.tsx"/>
  <tileset firstgid="2209" source="../tsx/paneau_meteo.tsx"/>
+ <tileset firstgid="2218" source="../../../../../The_Quest-ionnable_Heroe/graphics/Tiled/data/tsx/Overworld_tiled.tsx"/>
  <layer id="1" name="Ground" width="50" height="50">
   <data encoding="csv">
 377,422,380,240,287,241,378,333,334,239,284,330,239,422,331,333,426,422,377,423,333,284,425,330,242,287,379,379,287,239,422,425,423,330,376,380,426,379,378,239,380,333,424,331,377,426,239,286,285,288,
